@@ -1,7 +1,7 @@
 # stream-processing-server
 
 ``` bash
-# install dependencies
+# Run
 $ docker-compose exec app go run main.go
 
 ```
