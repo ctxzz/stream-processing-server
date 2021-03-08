@@ -54,12 +54,14 @@ func main() {
 	second = mergeOverlap(removeDuplicates(second))
 
 	operator := annotations.Operator
+	// operator := "NOT"
 	// operator := "UNION"
 	// operator := "INTERSECTION"
 	// operator := "DIFFERENCE"
 	// operator := "SYMMETRIC_DIFFERENCE"
+	duration := 60.0 // videoDuration
 
-	result := streamOperation(operator, assignLabel, first, second)
+	result := streamOperation(operator, assignLabel, first, second, duration)
 
 	fmt.Println("operator: ", operator)
 	fmt.Println(value1, "      : ", first)
@@ -149,8 +151,48 @@ func Filter(arr []Annotation, cond func(Annotation) bool) []Annotation {
 	return result
 }
 
-func streamOperation(operator string, assignLabel string, first []Annotation, second []Annotation) []Annotation {
+func streamOperation(operator string, assignLabel string, first []Annotation, second []Annotation, duration float64) []Annotation {
 	result := []Annotation{}
+
+	if operator == "NOT" {
+		var newAnnotation Annotation
+		newAnnotation.Label = assignLabel
+
+		if len(first) == 0 {
+			newAnnotation.Start = 0
+			newAnnotation.End = duration
+			result = append(result, newAnnotation)
+			return result
+		}
+
+		for v := range first {
+			if 0 < v && v < len(first)-1 {
+				newAnnotation.Start = first[v-1].End
+				newAnnotation.End = first[v].Start
+				result = append(result, newAnnotation)
+				continue
+			}
+
+			if v == 0 {
+				newAnnotation.Start = 0
+				newAnnotation.End = first[v].Start
+				result = append(result, newAnnotation)
+			}
+
+			if v == len(first)-1 {
+				if 2 <= len(first)-1 {
+					newAnnotation.Start = first[v-1].End
+					newAnnotation.End = first[v].Start
+					result = append(result, newAnnotation)
+				}
+				newAnnotation.Start = first[v].End
+				newAnnotation.End = duration
+				result = append(result, newAnnotation)
+			}
+		}
+
+		return result
+	}
 
 	for i := 0; i < len(first); i++ {
 		for j := 0; j < len(second); j++ {

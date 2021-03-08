@@ -1,5 +1,5 @@
 {
-  "operator": "DIFFERENCE",
+  "operator": "NOT",
   "assignLabel": "new",
   "value1": "a",
   "value2": "b",
@@ -15,11 +15,45 @@
       "start": 4.0,
       "end": 7.0
     },
-
     {
       "label": "a",
-      "start": 10.0,
+      "start": 9.0,
       "end": 12.0
+    },
+    {
+      "label": "a",
+      "start": 15.0,
+      "end": 16.0
+    },
+    {
+      "label": "a",
+      "start": 20.0,
+      "end": 22.0
+    },
+    {
+      "label": "a",
+      "start": 25.0,
+      "end": 30.0
+    },
+    {
+      "label": "a",
+      "start": 32.0,
+      "end": 34.0
+    },
+    {
+      "label": "a",
+      "start": 37.0,
+      "end": 39.0
+    },
+    {
+      "label": "a",
+      "start": 46.0,
+      "end": 49.0
+    },
+    {
+      "label": "a",
+      "start": 50.0,
+      "end": 55.0
     },
     {
       "label": "b",
@@ -30,6 +64,46 @@
       "label": "b",
       "start": 6.0,
       "end": 11.0
+    },
+    {
+      "label": "b",
+      "start": 13.0,
+      "end": 15.0
+    },
+    {
+      "label": "b",
+      "start": 18.0,
+      "end": 21.0
+    },
+    {
+      "label": "b",
+      "start": 26.0,
+      "end": 28.0
+    },
+    {
+      "label": "b",
+      "start": 33.0,
+      "end": 34.0
+    },
+    {
+      "label": "b",
+      "start": 35.0,
+      "end": 38.0
+    },
+    {
+      "label": "b",
+      "start": 40.0,
+      "end": 44.0
+    },
+    {
+      "label": "b",
+      "start": 46.0,
+      "end": 49.0
+    },
+    {
+      "label": "b",
+      "start": 50.0,
+      "end": 51.0
     }
   ]
 }
