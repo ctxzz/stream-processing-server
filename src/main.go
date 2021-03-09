@@ -10,7 +10,8 @@ import (
 
 // Annotation struct
 type Annotation struct {
-	Label string  `json:"label"`
+	Key   string  `json:"key"`
+	Value string  `json:"value"`
 	Start float64 `json:"start"`
 	End   float64 `json:"end"`
 }
@@ -18,7 +19,7 @@ type Annotation struct {
 // JSON struct
 type JSON struct {
 	Operator    string       `json:"operator"`
-	Label       string       `json:"assignLabel"`
+	NewValue    string       `json:"assignValue"`
 	Value1      string       `json:"value1"`
 	Value2      string       `json:"value2"`
 	Annotations []Annotation `json:"annotations"`
@@ -37,18 +38,18 @@ func main() {
 		log.Fatal(err)
 	}
 
-	assignLabel := annotations.Label
+	assignValue := annotations.NewValue
 	value1 := annotations.Value1
 	value2 := annotations.Value2
 
 	first := Filter(annotations.Annotations, func(val Annotation) bool {
-		return val.Label == value1
+		return val.Value == value1
 	})
 
 	first = mergeOverlap(removeDuplicates(first))
 
 	second := Filter(annotations.Annotations, func(val Annotation) bool {
-		return val.Label == value2
+		return val.Value == value2
 	})
 
 	second = mergeOverlap(removeDuplicates(second))
@@ -61,7 +62,7 @@ func main() {
 	// operator := "SYMMETRIC_DIFFERENCE"
 	duration := 60.0 // videoDuration
 
-	result := streamOperation(operator, assignLabel, first, second, duration)
+	result := streamOperation(operator, assignValue, first, second, duration)
 
 	fmt.Println("operator: ", operator)
 	fmt.Println(value1, "      : ", first)
@@ -151,12 +152,12 @@ func Filter(arr []Annotation, cond func(Annotation) bool) []Annotation {
 	return result
 }
 
-func streamOperation(operator string, assignLabel string, first []Annotation, second []Annotation, duration float64) []Annotation {
+func streamOperation(operator string, assignValue string, first []Annotation, second []Annotation, duration float64) []Annotation {
 	result := []Annotation{}
+	var newAnnotation Annotation
+	newAnnotation.Value = assignValue
 
 	if operator == "NOT" {
-		var newAnnotation Annotation
-		newAnnotation.Label = assignLabel
 
 		if len(first) == 0 {
 			newAnnotation.Start = 0
@@ -196,8 +197,6 @@ func streamOperation(operator string, assignLabel string, first []Annotation, se
 
 	for i := 0; i < len(first); i++ {
 		for j := 0; j < len(second); j++ {
-			var newAnnotation Annotation
-			newAnnotation.Label = assignLabel
 
 			switch operator {
 			case "UNION":
@@ -685,7 +684,6 @@ func streamOperation(operator string, assignLabel string, first []Annotation, se
 				break
 			}
 		}
-
 	}
 	return result
 }

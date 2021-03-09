@@ -1,107 +1,127 @@
 {
   "operator": "NOT",
-  "assignLabel": "new",
+  "assignValue": "new",
   "value1": "a",
   "value2": "b",
   "annotations": [
     {
-      "label": "a",
+      "key": "symbol",
+      "value": "a",
       "start": 1.0,
       "end": 3.0
     },
 
     {
-      "label": "a",
+      "key": "symbol",
+      "value": "a",
       "start": 4.0,
       "end": 7.0
     },
     {
-      "label": "a",
+      "key": "symbol",
+      "value": "a",
       "start": 9.0,
       "end": 12.0
     },
     {
-      "label": "a",
+      "key": "symbol",
+      "value": "a",
       "start": 15.0,
       "end": 16.0
     },
     {
-      "label": "a",
+      "key": "symbol",
+      "value": "a",
       "start": 20.0,
       "end": 22.0
     },
     {
-      "label": "a",
+      "key": "symbol",
+      "value": "a",
       "start": 25.0,
       "end": 30.0
     },
     {
-      "label": "a",
+      "key": "symbol",
+      "value": "a",
       "start": 32.0,
       "end": 34.0
     },
     {
-      "label": "a",
+      "key": "symbol",
+      "value": "a",
       "start": 37.0,
       "end": 39.0
     },
     {
-      "label": "a",
+      "key": "symbol",
+      "value": "a",
       "start": 46.0,
       "end": 49.0
     },
     {
-      "label": "a",
+      "key": "symbol",
+      "value": "a",
       "start": 50.0,
       "end": 55.0
     },
     {
-      "label": "b",
+      "key": "symbol",
+      "value": "b",
       "start": 2.0,
       "end": 5.0
     },
     {
-      "label": "b",
+      "key": "symbol",
+      "value": "b",
       "start": 6.0,
       "end": 11.0
     },
     {
-      "label": "b",
+      "key": "symbol",
+      "value": "b",
       "start": 13.0,
       "end": 15.0
     },
     {
-      "label": "b",
+      "key": "symbol",
+      "value": "b",
       "start": 18.0,
       "end": 21.0
     },
     {
-      "label": "b",
+      "key": "symbol",
+      "value": "b",
       "start": 26.0,
       "end": 28.0
     },
     {
-      "label": "b",
+      "key": "symbol",
+      "value": "b",
       "start": 33.0,
       "end": 34.0
     },
     {
-      "label": "b",
+      "key": "symbol",
+      "value": "b",
       "start": 35.0,
       "end": 38.0
     },
     {
-      "label": "b",
+      "key": "symbol",
+      "value": "b",
       "start": 40.0,
       "end": 44.0
     },
     {
-      "label": "b",
+      "key": "symbol",
+      "value": "b",
       "start": 46.0,
       "end": 49.0
     },
     {
-      "label": "b",
+      "key": "symbol",
+      "value": "b",
       "start": 50.0,
       "end": 51.0
     }
